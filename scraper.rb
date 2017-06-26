@@ -45,7 +45,7 @@ class President < Scraped::HTML
   end
 
   field :party_name do
-    noko.xpath('td[5]/a[1]/@title').text.tidy
+    noko.xpath('td[5]/a[1]/@title').text.tidy.gsub(/\(.+?\)$/, '')
   end
 
   field :party_code do
